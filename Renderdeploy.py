@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
-from io import StringIO
-
-# Configure port for Render
-PORT = int(os.environ.get("PORT", 10000))
 
 # Page config with improved layout
 st.set_page_config(
@@ -166,8 +161,3 @@ with tab2:
                annot=True, fmt='g', cmap='Oranges', ax=ax5)
     ax5.set_title("LLM Model Confusion Matrix")
     st.pyplot(fig3)
-
-# ========== RENDER DEPLOYMENT FIX ==========
-# This ensures Streamlit uses the correct port
-if __name__ == "__main__":
-    st._config.set_option("server.port", PORT)
